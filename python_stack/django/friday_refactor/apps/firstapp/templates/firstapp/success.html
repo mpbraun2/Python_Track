@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Appointments!</title>
+    <meta name="description" content="Login and Registration exercises for Django"> {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'firstapp/css/styles.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        {% if messages %}
+        <ul class="list-group">
+            {% for message in messages %}
+            <li class="list-group-item list-group-item-success">
+                <h2>{{ message }}</h2>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1> Hello, {{ user.first_name }} </h4>
+            <p> Here are your appointments for today!</p>
+            <table>
+                <tr>
+                    <th>Tasks</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                {% for appointment in appointments %}
+                <tr>
+                <td>{{ appointment.task }}</td>
+                <td>{{ appointment.time }}</td>
+                <td>{{ appointment.status }}</td>
+                <td><a href="/delete_appointment/{{appointment.id}}">Delete</a></td>
+                <td><a href="/update_appointment/{{appointment.id}}">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <h3> Your Other Appointments!</h3>
+            <table>
+                <tr>
+                    <th>Tasks</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+                <tr>{% for appointment in appointments %}</tr>
+                <td>{{ appointment.task }}</td>
+                <td>{{ appointment.time }}</td>
+                <td>{{ appointment.status }}</td>
+                {% endfor %}
+            </table>
+            <h3> Add Appointment</h3>
+            <br>
+            <form action="{% url 'add_appointment' %}" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="date" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Time</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="time" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tasks</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="task" class="form-control">
+                    </div>
+                </div>
+                <input class="btn btn-default" id="submitbutton" type="submit" value="Add">
+            </form>
+
+            <form action="{% url 'index' %}" method="POST" class="form-horizontal">
+                {% csrf_token %}
+                <input class="btn btn-default" id="submitbutton" type="submit" value="Logout">
+            </form>
+    </div>
+</body>
+
+</html>

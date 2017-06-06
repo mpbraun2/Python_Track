@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Here is where I display the appointments</h1>
+    <p>List of appointments:</p>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Time</th>
+            <th>Date</th>
+        </tr>
+        <tr>{% for appointment in appointments %}</tr>
+        <td>{{ appointment.task }}</td>
+        <td>{{ appointment.time }}</td>
+        <td>{{ appointment.date }}</td>
+        {% endfor %}
+    </table>
+    <form action="{% url 'index' %}" method="POST" class="form-horizontal">
+        {% csrf_token %}
+        <input class="btn btn-default" id="submitbutton" type="submit" value="Logout">
+    </form>
+</body>
+
+</html>

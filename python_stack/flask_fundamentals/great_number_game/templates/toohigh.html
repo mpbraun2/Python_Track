@@ -1,0 +1,15 @@
+<html>
+    <head>
+       <title>Great_Number_Game</title>
+    </head>
+    <body>
+      <h1>Welcome to the Great Number Game!</h1>
+      <h4>I am thinking of a number between 1 and 100</h4> 
+      <h4>Can you guess what it is?</h4>
+      <h3>You guessed {{session['guess']}}. Too High! Try again!</h3>
+      <form action='/wasitclose' method='post'>
+          <input type='text' name='number'>
+          <input type='submit' value='Submit'>
+      </form>
+    </body>
+</html>

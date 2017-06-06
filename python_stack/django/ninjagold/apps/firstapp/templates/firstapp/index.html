@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Ninja Gold</title>
+</head>
+<body>
+   <div>
+       <h3>Current Ninja Gold: Need to have session gold</h3>
+   </div>
+   <div>
+       <h3>Farm</h3>
+       <p>earns 10-20 gold</p>
+       <form action='/process' method='post'>
+        {% csrf_token %}
+           <input type='hidden' name='building' value='Farm'>
+           <input type='submit' value='Find Gold!'>
+       </form>
+   </div>
+   <div>
+       <h3>Cave</h3>
+       <p>earns 5-10 gold</p>
+       <form action='/process' method='post'>
+        {% csrf_token %}
+           <input type='hidden' name='building' value='Cave'>
+           <input type='submit' value='Find Gold!'>
+       </form>
+   </div>
+   <div>
+       <h3>House</h3>
+       <p>earns 2-5 gold</p>
+       <form action='/process' method='post'>
+        {% csrf_token %}
+           <input type='hidden' name='building' value='House'>
+           <input type='submit' value='Find Gold!'>
+       </form>
+   </div>
+   <div>
+       <h3>Casino</h3>
+       <p>earns/takes 0- 50 gold</p>
+       <form action='/process' method='post'>
+        {% csrf_token %}
+           <input type='hidden' name='building' value='Casino'>
+           <input type='submit' value='Find Gold!'>
+       </form>
+   </div>
+</body>
+</html>

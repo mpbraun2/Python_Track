@@ -1,0 +1,8 @@
+pip install Django - Collected and Installed the web framework Django and pytz (UTC TIMEZONES)
+pip list - Shows all parts installed with Python
+pip install Django - States that the requirement was already satisfied.
+pip freeze - What is installed vs what is available. Freeze (output installed packages in requirements format), List (List installed packages, including editables)
+First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. What do you see when you ls? What's inside this file?
+pip uninstall Django - huge scroll of files ending in a proceed (y/n)
+pip show Django - Nothing shows up
+pip search Flask. This one might take a moment to execute. Shows a list of possible Flask functions.

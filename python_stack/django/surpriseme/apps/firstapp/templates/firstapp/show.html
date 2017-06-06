@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Surprises:</h1>
+    {% if request.session.number == "0" %}
+        <p>No Surprises</p>
+    {% else %}
+        {% for i in values %}
+        <p>{{i}}</p>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

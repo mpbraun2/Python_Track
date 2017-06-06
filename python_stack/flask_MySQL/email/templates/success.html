@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Success</title>
+</head>
+<body>
+    <h1>The email you entered is a valid email address</h1>
+    <p>Email Addresses Entered</p>
+    {% for email_address in users: %}
+    <p>EMAIL: {{ users['email_address'] }}</p>
+    {% endfor %}
+</body>
+</html>

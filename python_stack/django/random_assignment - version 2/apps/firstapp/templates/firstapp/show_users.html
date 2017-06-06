@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here is where I display the users</h1>
+    <p>List of users:</p>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Alias</th>
+            <th>Email</th>
+            <th>Delete</th>
+            <th>View</th>
+            <th>Edit</th>
+        </tr>
+        <tr>{% for user in users %}</tr>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.alias }}</td>
+            <td>{{ user.email }}</td>
+            <td><a href="/delete_user/{{user.id}}">Delete</a></td>   <!--Add user ID -->
+            <td><a href="/user_profile/{{user.id}}">View</a></td>
+            <td><a href="/update_user/{{user.id}}">Edit</a></td>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Success Welcome</title>
+  {% load static %}
+</head>
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
+    {% endif %}
+  
+  <p><a href="{% url 'add_book' %}">Add Book and Review!</a></p>
+  <a href="{% url 'logout' %}">Logout!</a>
+  <div class="box">
+    <h4>Recent Book Reviews:</h4>
+      {% for review in reviews %}
+        <p>{{review.book.title}}</p>
+        <p>Rating: {% for i in "x"|rjust:review.stars %}
+        <img src="{% static 'firstapp/img/star.png' %}" alt="star"> {% endfor %}</p>
+        <p>{{review.user.alias}}</p>says: <i>{{review.content}}</i></p>
+        <p>Posted on {{review.created_at}}</p>
+      {% endfor %}
+  </div>
+  <div class="box">
+    <h4>Other Books with Reviews:</h4>
+      {% for book in books %}
+      <p>{{book.title}}</p>
+      {% endfor %}
+  </div>
+</body>
+</html>
